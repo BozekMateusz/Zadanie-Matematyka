@@ -5,12 +5,10 @@ import Link from "next/link";
 export default function KanonicznaIloczynowa() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Funkcja do przełączania motywu
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  // Zapisanie wyboru motywu w localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -19,9 +17,7 @@ export default function KanonicznaIloczynowa() {
   }, []);
 
   useEffect(() => {
-    // Zapisz motyw w localStorage
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-    // Zastosowanie odpowiednich klas do body
+    localStorage.setItem("theme", isDarkMode ? "light" : "dark");
     document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
@@ -33,11 +29,16 @@ export default function KanonicznaIloczynowa() {
     >
       <header className="mb-10 text-center">
         <h1 className="text-5xl font-extrabold text-blue-800 drop-shadow-lg">
-          Przejście z postaci kanonicznej do iloczynowej
+        <a
+  href="#"
+  className="bg-gradient-to-r from-teal-500 to-orange-500 bg-clip-text text-transparent 
+             animate-gradient-x bg-gradient-size"
+>
+  Przejście z postaci kanonicznej do iloczynowej
+</a>
         </h1>
       </header>
 
-      {/* Przycisk zmiany motywu */}
       <button
         onClick={toggleTheme}
         className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700"
@@ -46,25 +47,96 @@ export default function KanonicznaIloczynowa() {
       </button>
 
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className="bg-white p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Krok 1: Rozwiązywanie równań</h2>
-          <p className="mt-4 text-lg text-blue-600">
-            Zaczynamy od rozwiązywania równań z postaci kanonicznej <strong>f(x) = a(x - p)² + q</strong> względem x. Wyznaczamy miejsca zerowe, przyrównując funkcję do zera.
-          </p>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-blue-600 space-y-2">
+            <li>
+              Postać kanoniczna: <span>f(x) = a(x - p)² + q</span>
+            </li>
+            <li>
+              Postać iloczynowa: <span>f(x) = a(x - x₁)(x - x₂)</span>
+            </li>
+            <li>
+              Wzór na miejsca zerowe:
+              <ul className="list-disc pl-6">
+                <li>
+                  <span>x₁ = p - √(-q / a)</span>
+                </li>
+                <li>
+                  <span>x₂ = p + √(-q / a)</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </section>
 
-        <section className="bg-white p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Krok 2: Rozwinięcie kwadratu</h2>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700">Przykład 1:</h2>
           <p className="mt-4 text-lg text-blue-600">
-            Następnie rozwijamy nawias kwadratowy w celu uzyskania postaci ogólnej. Uzyskujemy funkcję kwadratową w postaci <strong>f(x) = a(x² - 2px + p²) + q</strong>.
+            Dana jest funkcja w postaci kanonicznej: <span>f(x) = 2(x - 3)² - 8</span>.
           </p>
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <li>
+              Oblicz miejsca zerowe:
+              <ul className="list-disc pl-6">
+                <li>
+                  <span>x₁ = 3 - √(8 / 2) = 1</span>
+                </li>
+                <li>
+                  <span>x₂ = 3 + √(8 / 2) = 5</span>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Postać iloczynowa: <span>f(x) = 2(x - 1)(x - 5)</span>.
+            </li>
+          </ol>
         </section>
 
-        <section className="bg-white p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Krok 3: Przekształcanie do postaci iloczynowej</h2>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700">Przykład 2:</h2>
           <p className="mt-4 text-lg text-blue-600">
-            Na końcu, przekształcamy wynik w postać iloczynową: <strong>f(x) = a(x - x₁)(x - x₂)</strong>, gdzie x₁ i x₂ są miejscami zerowymi rozwiązanymi z równania.
+            Dana jest funkcja w postaci kanonicznej: <span>f(x) = -3(x + 2)² + 12</span>.
           </p>
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <li>
+              Oblicz miejsca zerowe:
+              <ul className="list-disc pl-6">
+                <li>
+                  <span>x₁ = -2 - √(-12 / -3) = -4</span>
+                </li>
+                <li>
+                  <span>x₂ = -2 + √(-12 / -3) = 0</span>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Postać iloczynowa: <span>f(x) = -3(x + 4)(x)</span>.
+            </li>
+          </ol>
+        </section>
+
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700">Przykład 3:</h2>
+          <p className="mt-4 text-lg text-blue-600">
+            Dana jest funkcja w postaci kanonicznej: <span>f(x) = 5(x - 1)² - 20</span>.
+          </p>
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <li>
+              Oblicz miejsca zerowe:
+              <ul className="list-disc pl-6">
+                <li>
+                  <span>x₁ = 1 - √(20 / 5) = -1</span>
+                </li>
+                <li>
+                  <span>x₂ = 1 + √(20 / 5) = 3</span>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Postać iloczynowa: <span>f(x) = 5(x + 1)(x - 3)</span>.
+            </li>
+          </ol>
         </section>
 
         <div className="mt-8 text-center">
