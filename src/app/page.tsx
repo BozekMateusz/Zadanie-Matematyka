@@ -28,11 +28,11 @@ export default function Home() {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center py-10 px-4 transition-all duration-300 ${isDarkMode ? "bg-gray-900 text-black" : "bg-gradient-to-br from-blue-50 to-blue-100"}`}
+      className={`min-h-screen flex flex-col items-center py-10 px-4 transition-all duration-300 ${isDarkMode ? "bg-gray-900 text-white" : "bg-gradient-to-br from-blue-50 to-blue-100"}`}
     >
       {/* Nagłówek */}
       <header className="mb-10 text-center">
-        <h1 className="text-5xl font-extrabold dark:text-white text-gray-800 drop-shadow-lg">
+        <h1 className={`text-5xl font-extrabold drop-shadow-lg ${isDarkMode ? "dark:text-white" : "text-gray-800 drop-shadow-lg"}`}>
           Funkcja kwadratowa
         </h1>
         <p className="dark:text-white text-gray-800 mt-4 text-lg">
