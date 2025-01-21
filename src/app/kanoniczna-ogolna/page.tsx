@@ -5,12 +5,10 @@ import Link from "next/link";
 export default function KanonicznaOgolna() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Funkcja do przełączania motywu
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  // Zapisanie wyboru motywu w localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -19,9 +17,7 @@ export default function KanonicznaOgolna() {
   }, []);
 
   useEffect(() => {
-    // Zapisz motyw w localStorage
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-    // Zastosowanie odpowiednich klas do body
+    localStorage.setItem("theme", isDarkMode ? "light" : "dark");
     document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
@@ -33,11 +29,16 @@ export default function KanonicznaOgolna() {
     >
       <header className="mb-10 text-center">
         <h1 className="text-5xl font-extrabold text-blue-800 drop-shadow-lg">
-          Przejście z postaci kanonicznej do ogólnej
+          <a
+            href="#"
+            className="bg-gradient-to-r from-teal-500 to-indigo-500 bg-clip-text text-transparent 
+             animate-gradient-x bg-gradient-size"
+          >
+            Przejście z postaci kanonicznej do ogólnej
+          </a>
         </h1>
       </header>
 
-      {/* Przycisk zmiany motywu */}
       <button
         onClick={toggleTheme}
         className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700"
@@ -46,30 +47,73 @@ export default function KanonicznaOgolna() {
       </button>
 
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className="bg-white p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Krok 1: Rozwijanie kwadratu</h2>
-          <p className="mt-4 text-lg text-blue-600">
-            Aby przekształcić funkcję w postaci kanonicznej <strong>f(x) = a(x - p)² + q</strong> do postaci ogólnej <strong>f(x) = ax² + bx + c</strong>, musimy
-            rozwinąć kwadrat w nawiasie.
-            Przykład: <strong>(x - p)² = x² - 2px + p²</strong>, więc funkcja będzie miała postać: <strong>f(x) = a(x² - 2px + p²) + q</strong>.
-          </p>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-blue-600 space-y-2">
+            <li>
+              Postać kanoniczna: <span>f(x) = a(x - p)² + q</span>
+            </li>
+            <li>
+              Postać ogólna: <span>f(x) = ax² + bx + c</span>
+            </li>
+            <li>
+              Wzór skróconego mnożenia <span>(a - b)² = a² - 2ab + 𝑏²</span>
+            </li>
+          </ul>
         </section>
 
-        <section className="bg-white p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Krok 2: Obliczanie współczynników b i c</h2>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700">Przykład 1:</h2>
           <p className="mt-4 text-lg text-blue-600">
-            Po rozwinięciu kwadratu, mamy funkcję w postaci ogólnej <strong>f(x) = ax² - 2apx + ap² + q</strong>.
-            Teraz możemy obliczyć wartości współczynników b i c, gdzie:
-            - <strong>b = -2ap</strong>
-            - <strong>c = ap² + q</strong>
+            Dana jest funkcja w postaci kanonicznej: <span>f(x) = 2(x - 3)² + 5</span>.
           </p>
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <li>
+              Rozwiń nawias: <span>f(x) = 2(x² - 6x + 9) + 5</span>.
+            </li>
+            <li>
+              Rozmnoż przez współczynnik: <span>f(x) = 2x² - 12x + 18 + 5</span>.
+            </li>
+            <li>
+              Zredukuj wyrazy podobne: <span>f(x) = 2x² - 12x + 23</span>.
+            </li>
+          </ol>
         </section>
 
-        <section className="bg-white p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Krok 3: Ostateczna postać ogólna</h2>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700">Przykład 2:</h2>
           <p className="mt-4 text-lg text-blue-600">
-            Po obliczeniu wartości b i c, funkcja w postaci ogólnej przyjmuje postać: <strong>f(x) = ax² + bx + c</strong>.
+            Dana jest funkcja w postaci kanonicznej: <span>f(x) = -3(x + 2)² - 4</span>.
           </p>
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <li>
+              Rozwiń nawias: <span>f(x) = -3(x² + 4x + 4) - 4</span>.
+            </li>
+            <li>
+              Rozmnoż przez współczynnik: <span>f(x) = -3x² - 12x - 12 - 4</span>.
+            </li>
+            <li>
+              Zredukuj wyrazy podobne: <span>f(x) = -3x² - 12x - 16</span>.
+            </li>
+          </ol>
+        </section>
+
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700">Przykład 3:</h2>
+          <p className="mt-4 text-lg text-blue-600">
+            Dana jest funkcja w postaci kanonicznej: <span>f(x) = 4(x - 1)² + 2</span>.
+          </p>
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <li>
+              Rozwiń nawias: <span>f(x) = 4(x² - 2x + 1) + 2</span>.
+            </li>
+            <li>
+              Rozmnoż przez współczynnik: <span>f(x) = 4x² - 8x + 4 + 2</span>.
+            </li>
+            <li>
+              Zredukuj wyrazy podobne: <span>f(x) = 4x² - 8x + 6</span>.
+            </li>
+          </ol>
         </section>
 
         <div className="mt-8 text-center">
