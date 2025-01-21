@@ -47,7 +47,7 @@ export default function OgolnaKanoniczna() {
       </button>
 
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className={`bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl shadow-black`}>
+       <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold text-blue-700">Wzory, których używamy:</h2>
           <ul className="mt-4 text-lg text-blue-600 space-y-2">
             <li>
@@ -65,7 +65,7 @@ export default function OgolnaKanoniczna() {
           </ul>
         </section>
 
-        <section className={`bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl shadow-black`}>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold text-blue-700">Przykład 1:</h2>
           <p className="mt-4 text-lg text-blue-600">
             Dana jest funkcja w postaci ogólnej: <span>f(x) = 2x² - 4x + 1</span>.
@@ -88,7 +88,7 @@ export default function OgolnaKanoniczna() {
           </ol>
         </section>
 
-        <section className={`bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl shadow-black`}>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold text-blue-700">Przykład 2:</h2>
           <p className="mt-4 text-lg text-blue-600">
             Dana jest funkcja w postaci ogólnej: <span>f(x) = -3x² + 6x - 2</span>.
@@ -111,7 +111,7 @@ export default function OgolnaKanoniczna() {
           </ol>
         </section>
 
-        <section className={`bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl shadow-black`}>
+        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold text-blue-700">Przykład 3:</h2>
           <p className="mt-4 text-lg text-blue-600">
             Dana jest funkcja w postaci ogólnej: <span>f(x) = x² + 4x + 5</span>.
