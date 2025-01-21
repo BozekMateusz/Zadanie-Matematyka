@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center py-10 px-4 transition-all duration-300 ${isDarkMode ? "bg-gray-900 text-white" : "bg-gradient-to-br from-blue-50 to-blue-100"}`}
+      className={`min-h-screen flex flex-col items-center py-10 px-4 transition-all duration-300 ${isDarkMode ? "bg-gray-900 text-black" : "bg-gradient-to-br from-blue-50 to-blue-100"}`}
     >
       {/* Nagłówek */}
       <header className="mb-10 text-center">
