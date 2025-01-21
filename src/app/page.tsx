@@ -35,7 +35,7 @@ export default function Home() {
         <h1 className={`text-5xl font-extrabold drop-shadow-lg ${isDarkMode ? "text-white" : "text-gray-800"}`}>
           Funkcja kwadratowa</h1>
         <p className={` mt-4 text-lg font-extrabold drop-shadow-lg ${isDarkMode ? "text-white" : "text-gray-800"}`}>
-          Przekształcanie funkcji kwadratowej w różne postaci.</p>
+          Przekształcanie funkcji kwadratowej w różne postaci</p>
       </header>
 
       {/* Przycisk zmiany motywu */}
