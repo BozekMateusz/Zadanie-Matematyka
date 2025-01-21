@@ -32,12 +32,10 @@ export default function Home() {
     >
       {/* Nagłówek */}
       <header className="mb-10 text-center">
-        <h1 className={`text-5xl font-extrabold drop-shadow-lg ${isDarkMode ? "dark:text-white" : "text-gray-800 drop-shadow-lg"}`}>
-          Funkcja kwadratowa
-        </h1>
-        <p className="dark:text-white text-gray-800 mt-4 text-lg">
-          Przekształcanie funkcji kwadratowej w różne postaci.
-        </p>
+        <h1 className={`text-5xl font-extrabold drop-shadow-lg ${isDarkMode ? "text-white" : "text-gray-800"}`}>
+          Funkcja kwadratowa</h1>
+        <p className={`mt-4 text-lg ${isDarkMode ? "text-white" : "text-gray-800"}`}>
+          Przekształcanie funkcji kwadratowej w różne postaci.</p>
       </header>
 
       {/* Przycisk zmiany motywu */}
