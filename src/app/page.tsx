@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import 'katex/dist/katex.min.css';
+import { InlineMath } from "react-katex";
 
 export default function Home() {
   // Stan motywu: true = ciemny, false = jasny
@@ -32,10 +34,12 @@ export default function Home() {
     >
       {/* Nagłówek */}
       <header className="mb-10 text-center">
-        <h1 className={`text-5xl font-extrabold drop-shadow-lg ${isDarkMode ? "text-white" : "text-gray-800"}`}>
-          Funkcja kwadratowa</h1>
-        <p className={` mt-4 text-lg font-extrabold drop-shadow-lg ${isDarkMode ? "text-white" : "text-gray-800"}`}>
-          Przekształcanie funkcji kwadratowej w różne postaci</p>
+        <h1 className="text-5xl font-extrabold dark:text-white text-gray-800 drop-shadow-lg">
+          Funkcja kwadratowa
+        </h1>
+        <p className="dark:text-white text-gray-800 mt-4 text-lg">
+          Przekształcanie funkcji kwadratowej w różne postaci.
+        </p>
       </header>
 
       {/* Przycisk zmiany motywu */}
@@ -142,10 +146,10 @@ export default function Home() {
               Wzory na współrzędne wierzchołka:
               <ul className="list-disc pl-6">
                 <li>
-                  <span className="font-bold">p = -b / (2a)</span>
+                  <span className="font-bold"><InlineMath>{"p = \\frac{-b}{2a}"}</InlineMath></span>
                 </li>
                 <li>
-                  <span className="font-bold">q = f(p)</span>
+                  <span className="font-bold"><InlineMath>{"p = f(p)"}</InlineMath></span>
                 </li>
               </ul>
             </li>
@@ -153,10 +157,10 @@ export default function Home() {
               Wzory na miejsca zerowe (jeśli Δ ≥ 0):
               <ul className="list-disc pl-6">
                 <li>
-                  <span className="font-bold">x₁ = (-b - √Δ) / (2a)</span>
+                  <span className="font-bold"><InlineMath>{"x₁ = \\frac{-b - √Δ}{2a}"}</InlineMath></span>
                 </li>
                 <li>
-                  <span className="font-bold">x₂ = (-b + √Δ) / (2a)</span>
+                  <span className="font-bold"><InlineMath>{"x₂ = \\frac{-b + √Δ}{2a}"}</InlineMath></span>
                 </li>
               </ul>
             </li>
