@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+// Jeśli chcesz używać react-katex, odkomentuj poniższy import i użyj BlockMath w odpowiednim miejscu
+// import { BlockMath } from "react-katex"; // jeśli planujesz wyświetlać formuły matematyczne
 
 export default function KanonicznaIloczynowa() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -29,13 +31,13 @@ export default function KanonicznaIloczynowa() {
     >
       <header className="mb-10 text-center">
         <h1 className="text-5xl font-extrabold text-blue-800 drop-shadow-lg">
-        <a
-  href="#"
-  className="bg-gradient-to-r from-teal-500 to-orange-500 bg-clip-text text-transparent 
+          <a
+            href="#"
+            className="bg-gradient-to-r from-teal-500 to-orange-500 bg-clip-text text-transparent 
              animate-gradient-x bg-gradient-size"
->
-  Przejście z postaci kanonicznej do iloczynowej
-</a>
+          >
+            Przejście z postaci kanonicznej do iloczynowej
+          </a>
         </h1>
       </header>
 
