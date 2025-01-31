@@ -1,26 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function OgolnaIloczynowa() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-    document.body.classList.toggle("dark", isDarkMode);
-  }, [isDarkMode]);
-
   const examples = [
     {
       id: 1,
@@ -58,11 +39,9 @@ export default function OgolnaIloczynowa() {
   ];
 
   return (
-    <div className={`min-h-screen flex flex-col items-center py-10 px-4 transition-all duration-300 ${
-      isDarkMode ? "bg-gray-900 text-white" : "bg-gradient-to-br from-blue-50 to-blue-100"
-    }`}>
+    <div className="min-h-screen flex flex-col items-center py-10 px-4 bg-gray-900 text-white transition-all duration-300">
       <header className="mb-10 text-center">
-      <h1 className="text-5xl font-extrabold text-blue-800 drop-shadow-lg">
+        <h1 className="text-5xl font-extrabold text-blue-800 drop-shadow-lg">
           <a
             href="#"
             className="bg-gradient-to-r from-pink-500 to-red-700 bg-clip-text text-transparent 
@@ -73,17 +52,10 @@ export default function OgolnaIloczynowa() {
         </h1>
       </header>
 
-      <button
-        onClick={toggleTheme}
-        className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700"
-      >
-        {isDarkMode ? "Jasny motyw" : "Ciemny motyw"}
-      </button>
-
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className="bg-white dark:bg-slate-600 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Wzory, których używamy:</h2>
-          <ul className="mt-4 text-lg text-blue-600 dark:text-white space-y-2">
+        <section className="bg-slate-600 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-white">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-white space-y-2">
             <li>Postać ogólna: f(x) = ax² + bx + c</li>
             <li>Postać iloczynowa: f(x) = a(x - x₁)(x - x₂)</li>
             <li>Miejsca zerowe: x₁, x₂</li>
@@ -96,7 +68,7 @@ export default function OgolnaIloczynowa() {
                     x₁ =
                     <div className="flex flex-col items-center ml-2">
                       <span>-b - √Δ</span>
-                      <span className="border-t-2 border-blue-700 dark:border-white w-full"><a className="ml-4">2a</a></span>
+                      <span className="border-t-2 border-white w-full"><a className="ml-4">2a</a></span>
                     </div>
                   </div>
                 </li>
@@ -105,7 +77,7 @@ export default function OgolnaIloczynowa() {
                     x₂ =
                     <div className="flex flex-col items-center ml-2">
                       <span>-b + √Δ</span>
-                      <span className="border-t-2 border-blue-700 dark:border-white w-full"><a className="ml-4">2a</a></span>
+                      <span className="border-t-2 border-white w-full"><a className="ml-4">2a</a></span>
                     </div>
                   </div>
                 </li>
@@ -117,11 +89,11 @@ export default function OgolnaIloczynowa() {
         {examples.map((example) => (
           <section
             key={example.id}
-            className="bg-white dark:bg-slate-600 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl"
+            className="bg-slate-600 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl"
           >
-            <h2 className="text-2xl font-bold text-blue-700 dark:text-white">{example.title}:</h2>
-            <p className="mt-4 text-lg text-blue-600 dark:text-white">Dana jest funkcja w postaci ogólnej: {example.function}</p>
-            <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-4">
+            <h2 className="text-2xl font-bold text-white">{example.title}:</h2>
+            <p className="mt-4 text-lg text-white">Dana jest funkcja w postaci ogólnej: {example.function}</p>
+            <ol className="list-decimal mt-4 pl-6 text-lg text-white space-y-4">
               <li>
                 Obliczamy deltę:
                 <p className="pl-6">{example.delta}</p>
@@ -134,7 +106,7 @@ export default function OgolnaIloczynowa() {
                       <span className="mr-2">x{index + 1} =</span>
                       <div className="flex flex-col items-center">
                         <span>{zero.numerator}</span>
-                        <span className="border-t-2 border-blue-700 dark:border-white w-full"><a className="ml-4">{zero.denominator}</a></span>
+                        <span className="border-t-2 border-white w-full"><a className="ml-4">{zero.denominator}</a></span>
                       </div>
                       <span className="ml-2">= {zero.result}</span>
                     </div>
