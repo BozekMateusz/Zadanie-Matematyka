@@ -28,9 +28,9 @@ export default function IloczynowaOgolna() {
       functionIloczynowa: "f(x) = 2(x - 1)(x + 3)",
       steps: [
         "Przekształć nawiasy: (x - 1)(x + 3).",
-        "Oblicz mnożenie dwóch nawiasów: x * x + x * 3 - 1 * x - 1 * 3 = x² + 3x - x - 3.",
+        "Oblicz mnożenie dwóch nawiasów: (x · x) + (x · 3) - (1 · x) - (1 · 3) = x² + 3x - x - 3.",
         "Po uproszczeniu: x² + 2x - 3.",
-        "Pomnóż cały wyraz przez współczynnik a = 2': 2(x² + 2x - 3).",
+        "Pomnóż cały wyraz przez współczynnik a: 2(x² + 2x - 3).",
         "Rozwiń mnożenie: 2x² + 4x - 6.",
         "Postać ogólna: f(x) = 2x² + 4x - 6.",
       ],
@@ -41,7 +41,7 @@ export default function IloczynowaOgolna() {
       functionIloczynowa: "f(x) = (x - 2)(x + 4)",
       steps: [
         "Przekształć nawiasy: (x - 2)(x + 4).",
-        "Oblicz mnożenie dwóch nawiasów: x * x + x * 4 - 2 * x - 2 * 4 = x² + 4x - 2x - 8.",
+        "Oblicz mnożenie dwóch nawiasów: (x · x) + (x · 4) - (2 · x) - (2 · 4) = x² + 4x - 2x - 8.",
         "Po uproszczeniu: x² + 2x - 8.",
         "Postać ogólna: f(x) = x² + 2x - 8.",
       ],
@@ -52,9 +52,9 @@ export default function IloczynowaOgolna() {
       functionIloczynowa: "f(x) = -3(x + 1)(x - 2)",
       steps: [
         "Przekształć nawiasy: (x + 1)(x - 2).",
-        "Oblicz mnożenie dwóch nawiasów: x * x - x * 2 + 1 * x - 1 * 2 = x² - 2x + x - 2.",
+        "Oblicz mnożenie dwóch nawiasów: (x · x) - (x · 2) + (1 · x) - (1 · 2) = x² - 2x + x - 2.",
         "Po uproszczeniu: x² - x - 2.",
-        "Pomnóż cały wyraz przez współczynnik a = -3': -3(x² - x - 2).",
+        "Pomnóż cały wyraz przez współczynnik a: -3(x² - x - 2).",
         "Rozwiń mnożenie: -3x² + 3x + 6.",
         "Postać ogólna: f(x) = -3x² + 3x + 6.",
       ],
@@ -87,9 +87,9 @@ export default function IloczynowaOgolna() {
       </button>
 
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className="bg-white dark:bg-blue-100 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Wzory, których używamy:</h2>
-          <ul className="mt-4 text-lg text-blue-600 space-y-2">
+        <section className="bg-white dark:bg-slate-600 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-blue-600 dark:text-white space-y-2">
             <li>
               Postać iloczynowa: <span>f(x) = a(x - x₁)(x - x₂)</span>
             </li>
@@ -105,13 +105,13 @@ export default function IloczynowaOgolna() {
         {examples.map((example) => (
           <section
             key={example.id}
-            className="bg-white dark:bg-blue-100  hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl"
+            className="bg-white dark:bg-slate-600  hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl"
           >
-            <h2 className="text-2xl font-bold text-blue-700">{example.title}:</h2>
-            <p className="mt-4 text-lg text-blue-600">
+            <h2 className="text-2xl font-bold text-blue-700 dark:text-white">{example.title}:</h2>
+            <p className="mt-4 text-lg text-blue-600 dark:text-white">
               Dana jest funkcja w postaci iloczynowej: <span>{example.functionIloczynowa}</span>.
             </p>
-            <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
               {example.steps.map((step, index) => (
                 <li key={index}>
                   <span>{step}</span>
