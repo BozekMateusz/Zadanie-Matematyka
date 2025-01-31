@@ -1,26 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function KanonicznaOgolna() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("theme", isDarkMode ? "light" : "dark");
-    document.body.classList.toggle("dark", isDarkMode);
-  }, [isDarkMode]);
-
   const examples = [
     {
       title: "Przykład 1",
@@ -52,11 +33,7 @@ export default function KanonicznaOgolna() {
   ];
 
   return (
-    <div
-      className={`min-h-screen flex flex-col items-center py-10 px-4 transition-all duration-300 ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-gradient-to-br from-blue-50 to-blue-100"
-      }`}
-    >
+    <div className="min-h-screen flex flex-col items-center py-10 px-4 bg-gray-900 text-white transition-all duration-300">
       <header className="mb-10 text-center">
         <h1 className="text-5xl font-extrabold text-blue-800 drop-shadow-lg">
           <a
@@ -68,40 +45,33 @@ export default function KanonicznaOgolna() {
         </h1>
       </header>
 
-      <button
-        onClick={toggleTheme}
-        className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700"
-      >
-        {isDarkMode ? "Jasny motyw" : "Ciemny motyw"}
-      </button>
-
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className="bg-white dark:bg-slate-600 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Wzory, których używamy:</h2>
-          <ul className="mt-4 text-lg text-blue-600 dark:text-white space-y-2">
+        <section className="bg-slate-600 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-white">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-white space-y-2">
             <li>
               Postać kanoniczna: 
-              <span className=" ml-2">f(x) = a(x - p)² + q</span>
+              <span className="ml-2">f(x) = a(x - p)² + q</span>
             </li>
             <li>
               Postać ogólna: 
-              <span className=" ml-2">f(x) = ax² + bx + c</span>
+              <span className="ml-2">f(x) = ax² + bx + c</span>
             </li>
             <li>
               Wzór skróconego mnożenia: 
-              <span className=" ml-2">(a - b)² = a² - 2ab + b²</span>
+              <span className="ml-2">(a - b)² = a² - 2ab + b²</span>
             </li>
           </ul>
         </section>
 
         {examples.map((example, index) => (
-          <section key={index} className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl hover:scale-105 transform transition-all duration-300">
-            <h2 className="text-2xl font-bold text-blue-700 dark:text-white">{example.title}:</h2>
-            <p className="mt-4 text-lg text-blue-600 dark:text-white">
+          <section key={index} className="bg-slate-600 p-6 shadow-lg rounded-xl hover:scale-105 transform transition-all duration-300">
+            <h2 className="text-2xl font-bold text-white">{example.title}:</h2>
+            <p className="mt-4 text-lg text-white">
               Dana jest funkcja w postaci kanonicznej: 
-              <span className=" ml-2">{example.function}</span>.
+              <span className="ml-2">{example.function}</span>.
             </p>
-            <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
+            <ol className="list-decimal mt-4 pl-6 text-lg text-white space-y-2">
               {example.steps.map((step, i) => (
                 <li key={i}>
                   {step}
