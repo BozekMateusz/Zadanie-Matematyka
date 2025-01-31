@@ -1,7 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import 'katex/dist/katex.min.css';
-import { InlineMath } from 'react-katex';
 import Link from "next/link";
 
 export default function OgolnaKanoniczna() {
@@ -23,6 +21,78 @@ export default function OgolnaKanoniczna() {
     document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
+  const examples = [
+    {
+      title: "Przykład 1",
+      function: "f(x) = 2x² - 4x + 1",
+      steps: [
+        <div key="step1" className="flex flex-row">
+          <span>p = </span>
+          <span className="flex flex-col items-center">
+            <span className="ml-5">-(-4)</span>
+            <span className="ml-5 border-t-2 border-blue-700 dark:border-white w-full text-center">2 · 2</span>
+          </span>
+        </div>,
+        "p = 1",
+        <div key="step2" className="flex flex-row">
+          <span>q = </span>
+          <span className="flex flex-col items-center">
+            <span className="ml-5">1 - (-4)²</span>
+            <span className="ml-5 border-t-2 border-blue-700 dark:border-white w-full text-center">4 · 2</span>
+          </span>
+        </div>,
+        "q = -1",
+      ],
+      result: "f(x) = 2(x - 1)² - 1",
+    },
+    {
+      title: "Przykład 2",
+      function: "f(x) = -3x² + 6x - 2",
+      steps: [
+        <div key="step1" className="flex flex-row">
+          <span>p = </span>
+          <span className="flex flex-col items-center">
+            <span className="ml-5">-6</span>
+            <span className="ml-5 border-t-2 border-blue-700 dark:border-white w-full text-center">2 · -3</span>
+          </span>
+        </div>,
+        "p = -1",
+        <div key="step2" className="flex flex-row">
+          <span>q = </span>
+          <span className="flex flex-col items-center">
+            <span className="ml-5">-2 - 6²</span>
+            <span className="ml-5 border-t-2 border-blue-700 dark:border-white w-full text-center">4 · -3</span>
+          </span>
+        </div>,
+        "q = 1",
+      ],
+      result: "f(x) = -3(x + 1)² + 1",
+    },
+    {
+      title: "Przykład 3",
+      function: "f(x) = x² + 4x + 5",
+      steps: [
+        <div key="step1" className="flex flex-row">
+          <span>p = </span>
+          <span className="flex flex-col items-center">
+            <span className="ml-5">-4</span>
+            <span className="ml-5 border-t-2 border-blue-700 dark:border-white w-full text-center">2 · 1</span>
+          </span>
+        </div>,
+        "p = -2",
+        <div key="step2" className="flex flex-row">
+          <span>q = </span>
+          <span className="flex flex-col items-center">
+            <span className="ml-5">5 - 4²</span>
+            <span className="ml-5 border-t-2 border-blue-700 dark:border-white w-full text-center">4 · 1</span>
+          </span>
+        </div>,
+        "q = 1",
+      ],
+      result: "f(x) = (x + 2)² + 1",
+    },
+  ];
+
   return (
     <div
       className={`min-h-screen flex flex-col items-center py-10 px-4 transition-all duration-300 ${
@@ -33,8 +103,7 @@ export default function OgolnaKanoniczna() {
         <h1 className="text-5xl font-extrabold text-blue-800 drop-shadow-lg">
           <a
             href="#"
-            className="bg-gradient-to-r from-indigo-500 to-teal-500 bg-clip-text text-transparent 
-             animate-gradient-x bg-gradient-size"
+            className="bg-gradient-to-r from-indigo-500 to-teal-500 bg-clip-text text-transparent animate-gradient-x bg-gradient-size"
           >
             Przejście z postaci ogólnej do kanonicznej
           </a>
@@ -49,82 +118,65 @@ export default function OgolnaKanoniczna() {
       </button>
 
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        {/* Sekcja wzorów */}
         <section
-          className={`bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl hover:scale-105 transform transition-transform duration-300 ${
+          className={`bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl hover:scale-105 transform transition-transform duration-300 ${
             isDarkMode ? "shadow-neutral-400" : "shadow-black"
           }`}
         >
-          <h2 className="text-2xl font-bold text-blue-700">Wzory, których używamy:</h2>
-          <ul className="mt-4 text-lg text-blue-600 space-y-2">
-            <li>Postać ogólna: <span>f(x) = ax² + bx + c</span></li>
-            <li>Postać kanoniczna: <span>f(x) = a(x - p)² + q</span></li>
-            <li>Wzór na p: <InlineMath>{"p = \\frac{-b}{2a}"}</InlineMath></li>
-            <li>Wzór na q: <InlineMath>{"q = \\frac{b^2 - 4ac}{4a}"}</InlineMath></li>
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-blue-600  dark:text-white space-y-2">
+            <li>Postać ogólna: f(x) = ax² + bx + c</li>
+            <li>Postać kanoniczna: f(x) = a(x - p)² + q</li>
+            <div>
+              <div className="flex flex-row">
+                <span className="mr-2">wzór na p:</span>
+                <li className="mt-3 mr-1">p = </li>
+                <li className="flex flex-col items-center">
+                  <span className="">-b</span>
+                  <span className="w-14 border-t-2 border-blue-700 dark:border-white text-center">2a</span>
+                </li>
+              </div>
+            </div>
+            <div>
+              <div className="flex flex-row">
+                <span className="mr-2">wzór na q:</span>
+                <li className="mt-3 mr-1">q = </li>
+                <li className="flex flex-col items-center">
+                  <span className="ml-1">b² - 4ac</span>
+                  <span className="w-20 border-t-2 border-blue-700 dark:border-white text-center">4a</span>
+                </li>
+              </div>
+            </div>
           </ul>
         </section>
 
-        {/* Przykłady */}
-        {[
-          {
-            title: "Przykład 1",
-            function: "f(x) = 2x² - 4x + 1",
-            steps: [
-              "p = \\frac{-(-4)}{2 \\cdot 2} = 1",
-              "q = 1 - \\frac{(-4)^2}{4 \\cdot 2} = -1",
-            ],
-            result: "f(x) = 2(x - 1)² - 1",
-          },
-          {
-            title: "Przykład 2",
-            function: "f(x) = -3x² + 6x - 2",
-            steps: [
-              "p = \\frac{-6}{2 \\cdot (-3)} = -1",
-              "q = -2 - \\frac{6^2}{4 \\cdot (-3)} = 1",
-            ],
-            result: "f(x) = -3(x + 1)² + 1",
-          },
-          {
-            title: "Przykład 3",
-            function: "f(x) = x² + 4x + 5",
-            steps: [
-              "p = \\frac{-4}{2 \\cdot 1} = -2",
-              "q = 5 - \\frac{4^2}{4 \\cdot 1} = 1",
-            ],
-            result: "f(x) = (x + 2)² + 1",
-          },
-        ].map((example, index) => (
+        {examples.map((example, index) => (
           <section
             key={index}
-            className={`bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl hover:scale-105 transform transition-transform duration-300 ${
+            className={`bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl hover:scale-105 transform transition-transform duration-300 ${
               isDarkMode ? "shadow-neutral-400" : "shadow-black"
             }`}
           >
-            <h2 className="text-2xl font-bold text-blue-700">{example.title}:</h2>
-            <p className="mt-4 text-lg text-blue-600">
-              Dana jest funkcja w postaci ogólnej: <span>{example.function}</span>.
+            <h2 className="text-2xl font-bold text-blue-700 dark:text-white">{example.title}:</h2>
+            <p className="mt-4 text-lg text-blue-600 dark:text-white">
+              Dana jest funkcja w postaci ogólnej: {example.function}.
             </p>
-            <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
               <li>
                 Oblicz współrzędną wierzchołka:
                 <ul className="list-disc pl-6">
-                  <li>
-                    <InlineMath>{example.steps[0]}</InlineMath>
-                  </li>
-                  <li>
-                    <InlineMath>{example.steps[1]}</InlineMath>
-                  </li>
+                  {example.steps.map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
                 </ul>
               </li>
               <li>
-                Po podstawieniu do wzoru otrzymujemy postać kanoniczną:{" "}
-                <span>{example.result}</span>.
+                Po podstawieniu do wzoru otrzymujemy postać kanoniczną: {example.result}.
               </li>
             </ol>
           </section>
         ))}
 
-        {/* Link powrotu */}
         <div className="mt-8 text-center">
           <Link href="/" className="text-blue-600 underline hover:text-blue-800">
             Wróć do strony głównej
