@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { InlineMath } from 'react-katex'; // Importowanie InlineMath
 
 export default function KanonicznaOgolna() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -77,28 +76,32 @@ export default function KanonicznaOgolna() {
       </button>
 
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className="bg-white dark:bg-blue-100 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Wzory, których używamy:</h2>
-          <ul className="mt-4 text-lg text-blue-600 space-y-2">
+        <section className="bg-white dark:bg-slate-600 hover:scale-105 transform transition-transform duration-300 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-blue-600 dark:text-white space-y-2">
             <li>
-              Postać kanoniczna: <InlineMath>{`f(x) = a(x - p)² + q`}</InlineMath>
+              Postać kanoniczna: 
+              <span className=" ml-2">f(x) = a(x - p)² + q</span>
             </li>
             <li>
-              Postać ogólna: <InlineMath>{`f(x) = ax² + bx + c`}</InlineMath>
+              Postać ogólna: 
+              <span className=" ml-2">f(x) = ax² + bx + c</span>
             </li>
             <li>
-              Wzór skróconego mnożenia: <InlineMath>{`(a - b)² = a² - 2ab + b²`}</InlineMath>
+              Wzór skróconego mnożenia: 
+              <span className=" ml-2">(a - b)² = a² - 2ab + b²</span>
             </li>
           </ul>
         </section>
 
         {examples.map((example, index) => (
-          <section key={index} className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl hover:scale-105 transform transition-all duration-300">
-            <h2 className="text-2xl font-bold text-blue-700">{example.title}:</h2>
-            <p className="mt-4 text-lg text-blue-600">
-              Dana jest funkcja w postaci kanonicznej: <InlineMath>{example.function}</InlineMath>.
+          <section key={index} className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl hover:scale-105 transform transition-all duration-300">
+            <h2 className="text-2xl font-bold text-blue-700 dark:text-white">{example.title}:</h2>
+            <p className="mt-4 text-lg text-blue-600 dark:text-white">
+              Dana jest funkcja w postaci kanonicznej: 
+              <span className=" ml-2">{example.function}</span>.
             </p>
-            <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+            <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
               {example.steps.map((step, i) => (
                 <li key={i}>
                   {step}
