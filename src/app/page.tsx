@@ -1,8 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import "katex/dist/katex.min.css";
-
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center py-10 px-4 bg-gray-900 text-white transition-all duration-300">
