@@ -46,13 +46,13 @@ export default function Home() {
         </p>
       </header>
 
-      {/* Przycisk zmiany motywu 
+      {/* Przycisk zmiany motywu */}
       <button
         onClick={toggleTheme}
-        className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700"
+        className="invisible absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700"
       >
         {isDarkMode ? "Jasny motyw" : "Ciemny motyw"}
-      </button>*/}
+      </button>
 
       {/* Sekcja główna */}
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
