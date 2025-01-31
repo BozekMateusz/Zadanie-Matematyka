@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-// Jeśli chcesz używać react-katex, odkomentuj poniższy import i użyj BlockMath w odpowiednim miejscu
-// import { BlockMath } from "react-katex"; // jeśli planujesz wyświetlać formuły matematyczne
+import { BlockMath } from "react-katex"; // Importowanie BlockMath z react-katex
+import "katex/dist/katex.min.css"; // Importowanie stylów dla KaTeX
 
 export default function KanonicznaIloczynowa() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -53,19 +53,19 @@ export default function KanonicznaIloczynowa() {
           <h2 className="text-2xl font-bold text-blue-700">Wzory, których używamy:</h2>
           <ul className="mt-4 text-lg text-blue-600 space-y-2">
             <li>
-              Postać kanoniczna: <span>f(x) = a(x - p)² + q</span>
+              Postać kanoniczna: <BlockMath>{'f(x) = a(x - p)² + q'}</BlockMath>
             </li>
             <li>
-              Postać iloczynowa: <span>f(x) = a(x - x₁)(x - x₂)</span>
+              Postać iloczynowa: <BlockMath>{'f(x) = a(x - x₁)(x - x₂)'}</BlockMath>
             </li>
             <li>
               Wzór na miejsca zerowe:
               <ul className="list-disc pl-6">
                 <li>
-                  <span>x₁ = p - √(-q / a)</span>
+                  <BlockMath>{'x₁ = p - √(-q / a)'}</BlockMath>
                 </li>
                 <li>
-                  <span>x₂ = p + √(-q / a)</span>
+                  <BlockMath>{'x₂ = p + √(-q / a)'}</BlockMath>
                 </li>
               </ul>
             </li>
@@ -75,22 +75,22 @@ export default function KanonicznaIloczynowa() {
         <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold text-blue-700">Przykład 1:</h2>
           <p className="mt-4 text-lg text-blue-600">
-            Dana jest funkcja w postaci kanonicznej: <span>f(x) = 2(x - 3)² - 8</span>.
+            Dana jest funkcja w postaci kanonicznej: <BlockMath>{'f(x) = 2(x - 3)² - 8'}</BlockMath>.
           </p>
           <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
             <li>
               Oblicz miejsca zerowe:
               <ul className="list-disc pl-6">
                 <li>
-                  <span>x₁ = 3 - √(8 / 2) = 1</span>
+                  <BlockMath>{'x₁ = 3 - √(8 / 2) = 1'}</BlockMath>
                 </li>
                 <li>
-                  <span>x₂ = 3 + √(8 / 2) = 5</span>
+                  <BlockMath>{'x₂ = 3 + √(8 / 2) = 5'}</BlockMath>
                 </li>
               </ul>
             </li>
             <li>
-              Postać iloczynowa: <span>f(x) = 2(x - 1)(x - 5)</span>.
+              Postać iloczynowa: <BlockMath>{'f(x) = 2(x - 1)(x - 5)'}</BlockMath>.
             </li>
           </ol>
         </section>
@@ -98,22 +98,22 @@ export default function KanonicznaIloczynowa() {
         <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold text-blue-700">Przykład 2:</h2>
           <p className="mt-4 text-lg text-blue-600">
-            Dana jest funkcja w postaci kanonicznej: <span>f(x) = -3(x + 2)² + 12</span>.
+            Dana jest funkcja w postaci kanonicznej: <BlockMath>{'f(x) = -3(x + 2)² + 12'}</BlockMath>.
           </p>
           <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
             <li>
               Oblicz miejsca zerowe:
               <ul className="list-disc pl-6">
                 <li>
-                  <span>x₁ = -2 - √(-12 / -3) = -4</span>
+                  <BlockMath>{'x₁ = -2 - √(-12 / -3) = -4'}</BlockMath>
                 </li>
                 <li>
-                  <span>x₂ = -2 + √(-12 / -3) = 0</span>
+                  <BlockMath>{'x₂ = -2 + √(-12 / -3) = 0'}</BlockMath>
                 </li>
               </ul>
             </li>
             <li>
-              Postać iloczynowa: <span>f(x) = -3(x + 4)(x)</span>.
+              Postać iloczynowa: <BlockMath>{'f(x) = -3(x + 4)(x)'}</BlockMath>.
             </li>
           </ol>
         </section>
@@ -121,22 +121,22 @@ export default function KanonicznaIloczynowa() {
         <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold text-blue-700">Przykład 3:</h2>
           <p className="mt-4 text-lg text-blue-600">
-            Dana jest funkcja w postaci kanonicznej: <span>f(x) = 5(x - 1)² - 20</span>.
+            Dana jest funkcja w postaci kanonicznej: <BlockMath>{'f(x) = 5(x - 1)² - 20'}</BlockMath>.
           </p>
           <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
             <li>
               Oblicz miejsca zerowe:
               <ul className="list-disc pl-6">
                 <li>
-                  <span>x₁ = 1 - √(20 / 5) = -1</span>
+                  <BlockMath>{'x₁ = 1 - √(20 / 5) = -1'}</BlockMath>
                 </li>
                 <li>
-                  <span>x₂ = 1 + √(20 / 5) = 3</span>
+                  <BlockMath>{'x₂ = 1 + √(20 / 5) = 3'}</BlockMath>
                 </li>
               </ul>
             </li>
             <li>
-              Postać iloczynowa: <span>f(x) = 5(x + 1)(x - 3)</span>.
+              Postać iloczynowa: <BlockMath>{'f(x) = 5(x + 1)(x - 3)'}</BlockMath>.
             </li>
           </ol>
         </section>
