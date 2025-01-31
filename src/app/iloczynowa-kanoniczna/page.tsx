@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import 'katex/dist/katex.min.css';
-import { InlineMath } from "react-katex";
 
 export default function IloczynowaKanoniczna() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -49,100 +47,100 @@ export default function IloczynowaKanoniczna() {
       </button>
 
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Wzory, których używamy:</h2>
-          <ul className="mt-4 text-lg text-blue-600 space-y-2">
+        <section className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-blue-600 dark:text-white space-y-2">
             <li>
-              Postać iloczynowa: <InlineMath>{"f(x) = a(x - x_1)(x - x_2)"}</InlineMath>
+              Postać iloczynowa: <span>f(x) = a(x - x<sub>1</sub>)(x - x<sub>2</sub>)</span>
             </li>
             <li>
-              Postać kanoniczna: <InlineMath>{"f(x) = a(x - p)^2 + q"}</InlineMath>
+              Postać kanoniczna: <span>f(x) = a(x - p)<sup>2</sup> + q</span>
             </li>
             <li>
               Wzory na współczynniki:
               <ul className="list-disc pl-6">
                 <li>
-                  <InlineMath>{"p = \\frac{x_1 + x_2}{2}"}</InlineMath>
+                  <span>p = <span className="inline-flex flex-col items-center"><span>x<sub>1</sub> + x<sub>2</sub></span><span className="border-t-2 w-full border-blue-700 dark:border-white"><a className="ml-5">2</a></span></span></span>
                 </li>
                 <li>
-                  <InlineMath>{"q = f(p)"}</InlineMath>
+                  <span>q = f(p)</span>
                 </li>
               </ul>
             </li>
           </ul>
         </section>
 
-        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Przykład 1:</h2>
-          <p className="mt-4 text-lg text-blue-600">
-            Dana jest funkcja w postaci iloczynowej: <InlineMath>{"f(x) = 2(x - 1)(x - 5)"}</InlineMath>.
+        <section className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Przykład 1:</h2>
+          <p className="mt-4 text-lg text-blue-600 dark:text-white">
+            Dana jest funkcja w postaci iloczynowej: <span>f(x) = 2(x - 1)(x - 5)</span>.
           </p>
-          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
             <li>
               Oblicz współrzędne wierzchołka:
               <ul className="list-disc pl-6">
                 <li>
-                  <InlineMath>{"p = \\frac{1 + 5}{2} = 3"}</InlineMath>
+                  <span>p = <span className="inline-flex flex-col items-center"><span>1 + 5</span><span className="border-t-2 w-full border-blue-700 dark:border-white"><a className="ml-4">2</a></span></span> = 3</span>
                 </li>
                 <li>
-                  Oblicz <InlineMath>{"q"}</InlineMath> podstawiając <InlineMath>{"p"}</InlineMath> do funkcji:
+                  Oblicz q podstawiając p do funkcji:
                   <br />
-                  <InlineMath>{"q = 2(3 - 1)(3 - 5) = 2(2)(-2) = -8"}</InlineMath>
+                  <span>q = 2(3 - 1)(3 - 5) = 2(2)(-2) = -8</span>
                 </li>
               </ul>
             </li>
             <li>
-              Postać kanoniczna: <InlineMath>{"f(x) = 2(x - 3)^2 - 8"}</InlineMath>.
+              Postać kanoniczna: <span>f(x) = 2(x - 3)<sup>2</sup> - 8</span>.
             </li>
           </ol>
         </section>
 
-        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Przykład 2:</h2>
-          <p className="mt-4 text-lg text-blue-600">
-            Dana jest funkcja w postaci iloczynowej: <InlineMath>{"f(x) = -4(x + 3)(x - 1)"}</InlineMath>.
+        <section className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Przykład 2:</h2>
+          <p className="mt-4 text-lg text-blue-600 dark:text-white">
+            Dana jest funkcja w postaci iloczynowej: <span>f(x) = -4(x + 3)(x - 1)</span>.
           </p>
-          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
             <li>
               Oblicz współrzędne wierzchołka:
               <ul className="list-disc pl-6">
                 <li>
-                  <InlineMath>{"p = \\frac{-3 + 1}{2} = -1"}</InlineMath>
+                  <span>p = <span className="inline-flex flex-col items-center"><span>-3 + 1</span><span className="border-t-2 w-full border-blue-700 dark:border-white"><a className="ml-5">2</a></span></span> = -1</span>
                 </li>
                 <li>
-                  Oblicz <InlineMath>{"q"}</InlineMath> podstawiając <InlineMath>{"p"}</InlineMath> do funkcji:
+                  Oblicz q podstawiając p do funkcji:
                   <br />
-                  <InlineMath>{"q = -4(-1 + 3)(-1 - 1) = -4(2)(-2) = -16"}</InlineMath>
+                  <span>q = -4(-1 + 3)(-1 - 1) = -4(2)(-2) = -16</span>
                 </li>
               </ul>
             </li>
             <li>
-              Postać kanoniczna: <InlineMath>{"f(x) = -4(x + 1)^2 - 16"}</InlineMath>.
+              Postać kanoniczna: <span>f(x) = -4(x + 1)<sup>2</sup> - 16</span>.
             </li>
           </ol>
         </section>
 
-        <section className="bg-white dark:bg-blue-100 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700">Przykład 3:</h2>
-          <p className="mt-4 text-lg text-blue-600">
-            Dana jest funkcja w postaci iloczynowej: <InlineMath>{"f(x) = 3(x - 2)(x + 4)"}</InlineMath>.
+        <section className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Przykład 3:</h2>
+          <p className="mt-4 text-lg text-blue-600 dark:text-white">
+            Dana jest funkcja w postaci iloczynowej: <span>f(x) = 3(x - 2)(x + 4)</span>.
           </p>
-          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 space-y-2">
+          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
             <li>
               Oblicz współrzędne wierzchołka:
               <ul className="list-disc pl-6">
                 <li>
-                  <InlineMath>{"p = \\frac{2 + (-4)}{2} = -1"}</InlineMath>
+                  <span>p = <span className="inline-flex flex-col items-center"><span>2 + (-4)</span><span className="border-t-2 w-full border-blue-700 dark:border-white"><a className="ml-6">2</a></span></span> = -1</span>
                 </li>
                 <li>
-                  Oblicz <InlineMath>{"q"}</InlineMath> podstawiając <InlineMath>{"p"}</InlineMath> do funkcji:
+                  Oblicz q podstawiając p do funkcji:
                   <br />
-                  <InlineMath>{"q = 3(-1 - 2)(-1 + 4) = 3(-3)(3) = -27"}</InlineMath>
+                  <span>q = 3(-1 - 2)(-1 + 4) = 3(-3)(3) = -27</span>
                 </li>
               </ul>
             </li>
             <li>
-              Postać kanoniczna: <InlineMath>{"f(x) = 3(x + 1)^2 - 27"}</InlineMath>.
+              Postać kanoniczna: <span>f(x) = 3(x + 1)<sup>2</sup> - 27</span>.
             </li>
           </ol>
         </section>
@@ -159,4 +157,4 @@ export default function IloczynowaKanoniczna() {
       </footer>
     </div>
   );
-}
+};
