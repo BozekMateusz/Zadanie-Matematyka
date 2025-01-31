@@ -1,32 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 
 export default function IloczynowaKanoniczna() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
+    // Ustawienie ciemnego motywu
+    document.body.classList.add("dark");
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-    document.body.classList.toggle("dark", isDarkMode);
-  }, [isDarkMode]);
-
   return (
-    <div
-      className={`min-h-screen flex flex-col items-center py-10 px-4 transition-all duration-300 ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-gradient-to-br from-blue-50 to-blue-100"
-      }`}
-    >
+    <div className="min-h-screen flex flex-col items-center py-10 px-4 bg-gray-900 text-white transition-all duration-300">
       <header className="mb-10 text-center">
         <h1 className="text-5xl font-extrabold text-blue-800 drop-shadow-lg">
           <a
@@ -39,17 +22,10 @@ export default function IloczynowaKanoniczna() {
         </h1>
       </header>
 
-      <button
-        onClick={toggleTheme}
-        className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700"
-      >
-        {isDarkMode ? "Jasny motyw" : "Ciemny motyw"}
-      </button>
-
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
-        <section className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Wzory, których używamy:</h2>
-          <ul className="mt-4 text-lg text-blue-600 dark:text-white space-y-2">
+        <section className="bg-slate-600 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-white">Wzory, których używamy:</h2>
+          <ul className="mt-4 text-lg text-white space-y-2">
             <li>
               Postać iloczynowa: <span>f(x) = a(x - x<sub>1</sub>)(x - x<sub>2</sub>)</span>
             </li>
@@ -60,7 +36,7 @@ export default function IloczynowaKanoniczna() {
               Wzory na współczynniki:
               <ul className="list-disc pl-6">
                 <li>
-                  <span>p = <span className="inline-flex flex-col items-center"><span>x<sub>1</sub> + x<sub>2</sub></span><span className="border-t-2 w-full border-blue-700 dark:border-white"><a className="ml-5">2</a></span></span></span>
+                  <span>p = <span className="inline-flex flex-col items-center"><span>x<sub>1</sub> + x<sub>2</sub></span><span className="border-t-2 w-full border-white"><a className="ml-5">2</a></span></span></span>
                 </li>
                 <li>
                   <span>q = f(p)</span>
@@ -70,17 +46,17 @@ export default function IloczynowaKanoniczna() {
           </ul>
         </section>
 
-        <section className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Przykład 1:</h2>
-          <p className="mt-4 text-lg text-blue-600 dark:text-white">
+        <section className="bg-slate-600 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-white">Przykład 1:</h2>
+          <p className="mt-4 text-lg text-white">
             Dana jest funkcja w postaci iloczynowej: <span>f(x) = 2(x - 1)(x - 5)</span>.
           </p>
-          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
+          <ol className="list-decimal mt-4 pl-6 text-lg text-white space-y-2">
             <li>
               Oblicz współrzędne wierzchołka:
               <ul className="list-disc pl-6">
                 <li>
-                  <span>p = <span className="inline-flex flex-col items-center"><span>1 + 5</span><span className="border-t-2 w-full border-blue-700 dark:border-white"><a className="ml-4">2</a></span></span> = 3</span>
+                  <span>p = <span className="inline-flex flex-col items-center"><span>1 + 5</span><span className="border-t-2 w-full border-white"><a className="ml-4">2</a></span></span> = 3</span>
                 </li>
                 <li>
                   Oblicz q podstawiając p do funkcji:
@@ -95,17 +71,17 @@ export default function IloczynowaKanoniczna() {
           </ol>
         </section>
 
-        <section className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Przykład 2:</h2>
-          <p className="mt-4 text-lg text-blue-600 dark:text-white">
+        <section className="bg-slate-600 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-white">Przykład 2:</h2>
+          <p className="mt-4 text-lg text-white">
             Dana jest funkcja w postaci iloczynowej: <span>f(x) = -4(x + 3)(x - 1)</span>.
           </p>
-          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
+          <ol className="list-decimal mt-4 pl-6 text-lg text-white space-y-2">
             <li>
               Oblicz współrzędne wierzchołka:
               <ul className="list-disc pl-6">
                 <li>
-                  <span>p = <span className="inline-flex flex-col items-center"><span>-3 + 1</span><span className="border-t-2 w-full border-blue-700 dark:border-white"><a className="ml-5">2</a></span></span> = -1</span>
+                  <span>p = <span className="inline-flex flex-col items-center"><span>-3 + 1</span><span className="border-t-2 w-full border-white"><a className="ml-5">2</a></span></span> = -1</span>
                 </li>
                 <li>
                   Oblicz q podstawiając p do funkcji:
@@ -120,17 +96,17 @@ export default function IloczynowaKanoniczna() {
           </ol>
         </section>
 
-        <section className="bg-white dark:bg-slate-600 p-6 shadow-lg rounded-xl">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">Przykład 3:</h2>
-          <p className="mt-4 text-lg text-blue-600 dark:text-white">
+        <section className="bg-slate-600 p-6 shadow-lg rounded-xl">
+          <h2 className="text-2xl font-bold text-white">Przykład 3:</h2>
+          <p className="mt-4 text-lg text-white">
             Dana jest funkcja w postaci iloczynowej: <span>f(x) = 3(x - 2)(x + 4)</span>.
           </p>
-          <ol className="list-decimal mt-4 pl-6 text-lg text-blue-600 dark:text-white space-y-2">
+          <ol className="list-decimal mt-4 pl-6 text-lg text-white space-y-2">
             <li>
               Oblicz współrzędne wierzchołka:
               <ul className="list-disc pl-6">
                 <li>
-                  <span>p = <span className="inline-flex flex-col items-center"><span>2 + (-4)</span><span className="border-t-2 w-full border-blue-700 dark:border-white"><a className="ml-6">2</a></span></span> = -1</span>
+                  <span>p = <span className="inline-flex flex-col items-center"><span>2 + (-4)</span><span className="border-t-2 w-full border-white"><a className="ml-6">2</a></span></span> = -1</span>
                 </li>
                 <li>
                   Oblicz q podstawiając p do funkcji:
@@ -157,4 +133,4 @@ export default function IloczynowaKanoniczna() {
       </footer>
     </div>
   );
-};
+}
