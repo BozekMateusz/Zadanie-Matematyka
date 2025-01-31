@@ -38,21 +38,21 @@ export default function Home() {
     >
       {/* Nagłówek */}
       <header className="mb-10 text-center">
-        <h1 className="text-5xl font-extrabold dark:text-white light:text-gray-800 drop-shadow-lg">
+        <h1 className="text-5xl font-extrabold text-gray-800 drop-shadow-lg">
           Funkcja kwadratowa
         </h1>
-        <p className="dark:text-white light:text-gray-800 mt-4 text-lg">
+        <p className="text-gray-800 mt-4 text-lg">
           Przekształcanie funkcji kwadratowej w różne postaci.
         </p>
       </header>
 
-      {/* Przycisk zmiany motywu */}
+      {/* Przycisk zmiany motywu 
       <button
         onClick={toggleTheme}
         className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700"
       >
         {isDarkMode ? "Jasny motyw" : "Ciemny motyw"}
-      </button>
+      </button>*/}
 
       {/* Sekcja główna */}
       <main className="flex flex-col space-y-12 w-full max-w-5xl px-6">
